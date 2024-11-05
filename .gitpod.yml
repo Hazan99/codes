@@ -1,2 +1,12 @@
 image:
       file: .gitpod.Dockerfile 
+tasks:
+  - init: sudo apt-get update && sudo apt-get upgrade -y
+
+# Custom commands to keep the session active
+onCreateCommand: |
+  # Run a keep-alive script in the background
+  (while true; do
+    sleep 300 # Adjust the interval as needed (e.g., 5 minutes)
+    echo "Keeping the session alive..."
+  done) & # Run in the background
